@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Dax Designer</title>
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/daxDesigner.css">
+</head>
+<body>
+    <h1>Dax Designer</h1>
+    
+    <div class="container">
+        <canvas></canvas>
+        
+        <div class="controls">
+            <div class="control">
+                <label for="ipt_color">Colour:</label>
+                <input type="color" id="ipt_color">
+            </div>
+            
+            <div class="control">
+                <button id="btn_shades"><img src="images/person.svg" alt="People icon"> Hide identity</button>
+            </div>
+            
+            <div class="control">
+                <button id="btn_save"><img src="images/save.svg" alt="Save icon"> Save</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Sunglasses image by <a href="https://openclipart.org/detail/202714/sunglasses">pnx (Openclipart)</a></p>
+            <p>Save icon by <a href="http://iconmonstr.com/">Iconmonstr</a></p>
+        </footer>
+    </div>
+    
+    <script src="js/daxDesigner.js"></script>
+</body>
+</html>
