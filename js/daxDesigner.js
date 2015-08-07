@@ -52,6 +52,8 @@
         }
     }
     
+    document.getElementById('ipt_acc_natural').checked = true;
+    
     function doDraw() {
         var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
         gradient.addColorStop(0.0, ipt_color_top.value);
