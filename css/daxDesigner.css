@@ -7,27 +7,62 @@ html {
 body {
     background: #f7f7f7;
     height: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    width: 80%;
 }
-body, input {
+body, button, input {
     color: #333;
     font-family: "Proxima Nova","Helvetica Neue","Helvetica","Segoe UI","Nimbus Sans L","Liberation Sans","Open Sans",FreeSans,Arial,sans-serif;
 }
 h1 {
     font-weight: normal;
-    line-height: 2;
     text-align: center;
 }
-.container {
-    margin: 0 auto;
-    width: 80%;
+.pure-g > div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+}
+.l-box {
+    padding: 0.5em;
 }
 canvas {
     border-radius: 8px;
     box-shadow: 0 2px 4px #333;
-    display: block;
-    float: left;
+    xdisplay: block;
+    xfloat: left;
+}
+input {
+    min-height: 48px;
+    padding:0;
+    width: 100%;
+}
+button {
+    min-height: 48px;
+    width: 100%;
+}
+button img {
+    height: 32px;
+    vertical-align: middle;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        width: 90%;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .l-box {
+        padding: 0.3em;
+    }
+}
+
+/*
+.container {
+    margin: 0 auto;
+    width: 80%;
 }
 .controls {
     float: right;
@@ -43,18 +78,6 @@ canvas {
 .control {
     display: inline-block;
     width: 49%;
-}
-.control input {
-    min-height: 48px;
-    width: 100%;
-}
-.row button {
-    min-height: 48px;
-    width: 100%;
-}
-button img {
-    height: 32px;
-    vertical-align: middle;
 }
 footer {
     clear: both;
@@ -100,3 +123,4 @@ footer {
     }
 }
 
+*/
