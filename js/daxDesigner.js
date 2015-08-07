@@ -10,26 +10,47 @@
     // Global variables
     var ipt_color_top = document.getElementById('ipt_color_top');
     var ipt_color_bottom = document.getElementById('ipt_color_bottom');
-    var ipt_acc_hat = document.getElementById('ipt_acc_hat');
-    var ipt_acc_grad = document.getElementById('ipt_acc_grad');
     var btn_shades = document.getElementById('btn_shades');
     var btn_save = document.getElementById('btn_save');
     ipt_color_top.value = ipt_color_bottom.value = '#de5833';
     var hasShades = false;
-    var hasHat = false;
-    var hasGrad = false;
+    var accessories = {
+        'hat': {
+            img: new Image(),
+            coords: [0, -6]
+        },
+        'grad': {
+            img: new Image(),
+            coords: [-6, 8]
+        },
+        'crown': {
+            img: new Image(),
+            coords: [32, -2]
+        },
+        'party': {
+            img: new Image(),
+            coords: [0, -56]
+        },
+        'hair': {
+            img: new Image(),
+            coords: [11, -1]
+        }
+    };
     
-    // Load SVG image of Dax
+    // Pre-load SVG image of Dax
     var dax = new Image();
     dax.src = 'images/dax.svg';
     
-    // Pre-load accessories
+    // Pre-load sunglasses
     var shades = new Image();
     shades.src = 'images/shades.svg';
-    var hat = new Image();
-    hat.src = 'images/hat.svg';
-    var grad = new Image();
-    grad.src = 'images/grad.svg';
+    
+    // Pre-load images of accessories
+    for (var image in accessories) {
+        if (accessories.hasOwnProperty(image)) {
+            accessories[image].img.src = 'images/' + image + '.svg';
+        }
+    }
     
     function doDraw() {
         var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
@@ -41,11 +62,11 @@
         if (!!hasShades) {
             ctx.drawImage(shades, 51, 62);
         }
-        if (!!hasHat) {
-            ctx.drawImage(hat, 0, -6);
-        }
-        if (!!hasGrad) {
-            ctx.drawImage(grad, -6, 8);
+        
+        var accessory = document.querySelector('input[name=accessories]:checked').value;
+        if (!!accessory && accessory in accessories) {
+            var acc = accessories[accessory];
+            ctx.drawImage(acc.img, acc.coords[0], acc.coords[1]);
         }
     }
     
@@ -58,14 +79,11 @@
         hasShades = !hasShades;
         doDraw();
     };
-    ipt_acc_hat.onchange = function() {
-        hasHat = !hasHat;
-        doDraw();
-    };
-    ipt_acc_grad.onchange = function() {
-        hasGrad = !hasGrad;
-        doDraw();
-    };
+    
+    var radios = document.querySelectorAll('input[name=accessories]');
+    for (var i = 0, len = radios.length; i < len; i++) {
+        radios[i].onchange = doDraw;
+    }
     
     // Export image
     btn_save.onclick = function() {
