@@ -35,12 +35,20 @@ canvas {
     margin-bottom: 64px;
     width: calc(100% - 200px);
 }
-.control {
+.row {
     padding-bottom: 4px;
     padding-left: 64px;
     padding-top: 4px;
 }
-.control button, .control input {
+.control {
+    display: inline-block;
+    width: 49%;
+}
+.control input {
+    min-height: 48px;
+    width: 100%;
+}
+.row button {
     min-height: 48px;
     width: 100%;
 }

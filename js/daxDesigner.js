@@ -8,10 +8,11 @@
     canvas.height = 200;
     
     // Global variables
-    var ipt_color = document.getElementById('ipt_color');
+    var ipt_color_top = document.getElementById('ipt_color_top');
+    var ipt_color_bottom = document.getElementById('ipt_color_bottom');
     var btn_shades = document.getElementById('btn_shades');
     var btn_save = document.getElementById('btn_save');
-    ipt_color.value = '#de5833';
+    ipt_color_top.value = ipt_color_bottom.value = '#de5833';
     var hasShades = false;
     
     // Load SVG image of Dax
@@ -23,7 +24,10 @@
     shades.src = 'images/shades.svg';
     
     function doDraw() {
-        ctx.fillStyle = ipt_color.value;
+        var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0.0, ipt_color_top.value);
+        gradient.addColorStop(1.0, ipt_color_bottom.value);
+        ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(dax, 0, 0);
         if (!!hasShades) {
@@ -32,7 +36,8 @@
     }
     
     // Add colour picker for background
-    ipt_color.onchange = doDraw;
+    ipt_color_top.onchange = doDraw;
+    ipt_color_bottom.onchange = doDraw;
     
     // Toggle sunglasses
     btn_shades.onclick = function() {
