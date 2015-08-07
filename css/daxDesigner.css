@@ -1,54 +1,39 @@
-* {
-    xoutline: 1px solid green;
-}
 html {
     height: 100%;
 }
 body {
     background: #f7f7f7;
     height: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    width: 80%;
 }
-body, input {
+body, button, input {
     color: #333;
     font-family: "Proxima Nova","Helvetica Neue","Helvetica","Segoe UI","Nimbus Sans L","Liberation Sans","Open Sans",FreeSans,Arial,sans-serif;
 }
 h1 {
     font-weight: normal;
-    line-height: 2;
     text-align: center;
 }
-.container {
-    margin: 0 auto;
-    width: 80%;
+.pure-g > div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+}
+.l-box {
+    padding: 0.5em;
 }
 canvas {
     border-radius: 8px;
     box-shadow: 0 2px 4px #333;
-    display: block;
-    float: left;
 }
-.controls {
-    float: right;
-    font-size: 1.2em;
-    margin-bottom: 64px;
-    width: calc(100% - 200px);
-}
-.row {
-    padding-bottom: 4px;
-    padding-left: 64px;
-    padding-top: 4px;
-}
-.control {
-    display: inline-block;
-    width: 49%;
-}
-.control input {
+input {
     min-height: 48px;
+    padding:0;
     width: 100%;
 }
-.row button {
+button {
     min-height: 48px;
     width: 100%;
 }
@@ -56,47 +41,15 @@ button img {
     height: 32px;
     vertical-align: middle;
 }
-footer {
-    clear: both;
-    display: block;
-}
-@media screen and (min-width: 960px) {
-    .container {
-        width: 60%;
-    }
-}
-@media screen and (max-width: 600px) {
-    h1 {
-        line-height: 1.5;
-    }
-    .container {
+
+@media screen and (max-width: 480px) {
+    body {
         width: 90%;
     }
-    .control {
-        padding-left: 32px;
-    }
-}
-@media screen and (max-width: 500px) {
     h1 {
-        line-height: 1;
+        font-size: 1.5em;
     }
-    canvas {
-        float: none;
-        width: 200px;
-        margin: 0 auto;
-        margin-bottom: 16px;
-    }
-    .control {
-        padding-bottom: 2px;
-        padding-left: 0px;
-        padding-top: 2px;
-    }
-    .controls {
-        margin-bottom: 32px;
-        width: 100%;
-    }
-    .container {
-        width: 80%;
+    .l-box {
+        padding: 0.3em;
     }
 }
-
